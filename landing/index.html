@@ -211,6 +211,36 @@ section{ padding:clamp(64px, 10vw, 120px) 0; }
 .btn-ghost{ background:transparent; color:var(--mist); border-color:var(--line); }
 .btn-note{ font-family:var(--mono); font-size:.76rem; color:var(--mist-dim); }
 
+/* ── 설치 안내 ── */
+.steps{
+  margin-top:clamp(24px,3.5vw,34px);
+  border:1px solid var(--line); border-radius:var(--r);
+  padding:clamp(18px,2.6vw,24px);
+  max-width:840px;
+}
+.steps-head{ color:var(--chalk); font-weight:700; font-size:.96rem; letter-spacing:-.01em; }
+.steps-list{
+  list-style:none; margin:16px 0 0; padding:0;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,26px);
+}
+@media (max-width:700px){ .steps-list{ grid-template-columns:1fr; gap:16px; } }
+.steps-list li{ font-size:.88rem; line-height:1.65; }
+.steps-list .st{
+  font-family:var(--mono); font-size:.7rem; color:var(--pulse);
+  display:block; margin-bottom:6px;
+}
+.steps-list b{ color:var(--chalk); display:block; font-size:.9rem; margin-bottom:3px; }
+.steps-list i{ font-style:normal; color:var(--mist); }
+.steps kbd{
+  font-family:var(--mono); font-size:.78em;
+  background:var(--slate-2); border:1px solid var(--line); border-radius:4px;
+  padding:1px 6px; color:var(--chalk); white-space:nowrap;
+}
+.steps-why{
+  margin-top:18px; padding-top:16px; border-top:1px solid var(--line);
+  font-size:.84rem; color:var(--mist-dim); max-width:70ch;
+}
+
 /* ── 3열 요점 ── */
 .points{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,3vw,40px); }
 .points h3{ margin-bottom:8px; }
@@ -352,11 +382,39 @@ footer{ border-top:1px solid var(--line); padding:40px 0 56px; }
     </div>
 
     <div class="cta-row">
-      <a class="btn btn-main" id="dl" href="https://github.com/nexa101/Key-tone-change-0725/releases/download/v1.0.0/KlackType-1.0.0-win.zip">
+      <a class="btn btn-main" id="dl" href="https://github.com/nexa101/Key-tone-change-0725/releases/download/v1.0.0/KlackType-Setup-1.0.0.exe">
         <span aria-hidden="true">↓</span> 무료로 받기
       </a>
       <a class="btn btn-buy" href="#price">전체 소리 열기 · ₩5,000 한 번</a>
-      <span class="btn-note" id="dlnote">Windows 10 / 11 · 104MB · 설치 프로그램 없이 압축만 풀면 실행</span>
+      <span class="btn-note" id="dlnote">Windows 10 / 11 · 77MB</span>
+    </div>
+
+    <!-- 설치 안내 — 경고를 숨기지 않고 미리 알린다 -->
+    <div class="steps">
+      <p class="steps-head">받는 도중에 경고가 두 번 뜹니다. 정상입니다.</p>
+      <ol class="steps-list">
+        <li>
+          <span class="st">1</span>
+          <b>받기</b>
+          <span>브라우저가 <i>"일반적으로 다운로드되지 않습니다"</i>라고 하면
+          파일 옆 <kbd>⋯</kbd> → <kbd>계속</kbd>.</span>
+        </li>
+        <li>
+          <span class="st">2</span>
+          <b>실행</b>
+          <span><i>"Windows의 PC 보호"</i> 창이 뜨면
+          <kbd>추가 정보</kbd> → <kbd>실행</kbd>.</span>
+        </li>
+        <li>
+          <span class="st">3</span>
+          <b>설치</b>
+          <span>다음 → 완료. 작업표시줄 알림영역에 아이콘이 생기면 끝입니다.</span>
+        </li>
+      </ol>
+      <p class="steps-why">
+        서명 인증서를 아직 붙이지 않아서 윈도우가 처음 보는 프로그램으로 취급하는 것입니다.
+        파일이 손상되었거나 위험하다는 판정이 아닙니다. 인증서를 붙이면 두 경고 모두 사라집니다.
+      </p>
     </div>
   </div>
 
@@ -438,7 +496,7 @@ footer{ border-top:1px solid var(--line); padding:40px 0 56px; }
           <li>볼륨·자동 실행·음소거 단축키</li>
           <li>기한 없음</li>
         </ul>
-        <a class="btn btn-ghost" id="dl2" href="https://github.com/nexa101/Key-tone-change-0725/releases/download/v1.0.0/KlackType-1.0.0-win.zip">무료로 받기</a>
+        <a class="btn btn-ghost" id="dl2" href="https://github.com/nexa101/Key-tone-change-0725/releases/download/v1.0.0/KlackType-Setup-1.0.0.exe">무료로 받기</a>
       </div>
       <div class="plan paid">
         <span class="pname">전체 열기</span>
@@ -469,10 +527,13 @@ footer{ border-top:1px solid var(--line); padding:40px 0 56px; }
 
     <div class="faq">
       <details open>
-        <summary>설치할 때 "Windows가 PC를 보호했습니다" 경고가 뜹니다</summary>
+        <summary>다운로드할 때, 실행할 때 경고가 뜹니다</summary>
         <div class="body">
-          <p>맞습니다. 지금 배포하는 설치 파일에는 코드 서명 인증서가 붙어 있지 않아서, 윈도우가 처음 보는 게시자라고 판단해 경고를 띄웁니다. 파일이 손상되었거나 악성이라는 뜻은 아닙니다.</p>
-          <p>계속 설치하려면 경고창의 <b>추가 정보</b> → <b>실행</b>을 누르시면 됩니다. 코드 서명 인증서를 붙이면 이 경고는 사라지며, 준비되는 대로 적용할 예정입니다.</p>
+          <p>둘 다 뜨는 게 맞습니다. 원인은 하나입니다 — 이 파일에 아직 코드 서명 인증서가 붙어 있지 않아서, 브라우저와 윈도우가 처음 보는 프로그램으로 취급합니다. 파일이 손상되었거나 악성이라는 판정이 아닙니다.</p>
+          <p><b>1) 브라우저</b> — "일반적으로 다운로드되지 않습니다"가 뜨면 파일 옆 <b>⋯</b> → <b>계속</b>(엣지는 <b>보관</b>).</p>
+          <p><b>2) 윈도우</b> — "Windows의 PC 보호"가 뜨면 <b>추가 정보</b> → <b>실행</b>.</p>
+          <p>인증서를 붙이면 두 경고 모두 사라집니다. 준비되는 대로 적용할 예정입니다.</p>
+          <p>회사 PC라 설치 프로그램을 못 쓰신다면 <a href="https://github.com/nexa101/Key-tone-change-0725/releases/download/v1.0.0/KlackType-1.0.0-win.zip">압축본(104MB)</a>도 있습니다. 다만 <b>폴더에 완전히 압축을 푼 뒤</b> 그 안의 KlackType.exe를 실행해야 합니다. 압축 파일 창 안에서 바로 실행하면 오류가 납니다.</p>
         </div>
       </details>
       <details>
@@ -543,7 +604,7 @@ const CONFIG = {
   // 주의: 같은 주소가 <a id="dl">, <a id="dl2"> 의 href 에도 직접 적혀 있습니다.
   // JS 없이도(크롤러·링크 미리보기) 링크가 살아 있어야 해서 일부러 양쪽에 뒀습니다.
   // 버전을 올릴 때는 세 군데를 함께 고치세요.
-  downloadUrl: 'https://github.com/nexa101/Key-tone-change-0725/releases/download/v1.0.0/KlackType-1.0.0-win.zip',
+  downloadUrl: 'https://github.com/nexa101/Key-tone-change-0725/releases/download/v1.0.0/KlackType-Setup-1.0.0.exe',
   version: '1.0.0',
 
   // PG 심사 통과 후 결제 페이지 URL로 교체
