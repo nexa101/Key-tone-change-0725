@@ -352,7 +352,7 @@ footer{ border-top:1px solid var(--line); padding:40px 0 56px; }
     </div>
 
     <div class="cta-row">
-      <a class="btn btn-main" id="dl" href="#">
+      <a class="btn btn-main" id="dl" href="https://github.com/nexa101/Key-tone-change-0725/releases/download/v1.0.0/KlackType-1.0.0-win.zip">
         <span aria-hidden="true">↓</span> 무료로 받기
       </a>
       <a class="btn btn-buy" href="#price">전체 소리 열기 · ₩5,000 한 번</a>
@@ -438,7 +438,7 @@ footer{ border-top:1px solid var(--line); padding:40px 0 56px; }
           <li>볼륨·자동 실행·음소거 단축키</li>
           <li>기한 없음</li>
         </ul>
-        <a class="btn btn-ghost" id="dl2" href="#">무료로 받기</a>
+        <a class="btn btn-ghost" id="dl2" href="https://github.com/nexa101/Key-tone-change-0725/releases/download/v1.0.0/KlackType-1.0.0-win.zip">무료로 받기</a>
       </div>
       <div class="plan paid">
         <span class="pname">전체 열기</span>
@@ -539,6 +539,10 @@ footer{ border-top:1px solid var(--line); padding:40px 0 56px; }
    ══════════════════════════════════════════════════════════ */
 const CONFIG = {
   // GitHub Releases. 새 버전을 올리면 아래 v1.0.0 부분과 파일명을 바꿉니다.
+  //
+  // 주의: 같은 주소가 <a id="dl">, <a id="dl2"> 의 href 에도 직접 적혀 있습니다.
+  // JS 없이도(크롤러·링크 미리보기) 링크가 살아 있어야 해서 일부러 양쪽에 뒀습니다.
+  // 버전을 올릴 때는 세 군데를 함께 고치세요.
   downloadUrl: 'https://github.com/nexa101/Key-tone-change-0725/releases/download/v1.0.0/KlackType-1.0.0-win.zip',
   version: '1.0.0',
 
