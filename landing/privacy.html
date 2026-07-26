@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개인정보처리방침 — Tadak</title>
+<meta name="description" content="Tadak은 키 입력 내용을 저장하지도, 외부로 보내지도 않습니다. 앱에는 네트워크 통신 기능 자체가 없습니다.">
+<meta name="robots" content="index, follow">
+<style>
+html { color-scheme: dark; }
+
+:root{
+  --ink:#14171E;
+  --slate:#1E222C;
+  --line:#2C323F;
+  --mist:#A8B0C2;
+  --mist-dim:#7C8496;
+  --chalk:#EEF1F7;
+  --pulse:#7C8CF8;
+  --warm:#D9A86C;
+  --mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Consolas, "D2Coding", monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", Roboto, sans-serif;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  background:var(--ink);
+  color:var(--mist);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:radial-gradient(ellipse 900px 520px at 50% -16%, rgba(124,140,248,.12), transparent 62%);
+}
+main,header,footer{ position:relative; z-index:1; }
+
+.wrap{ max-width:720px; margin:0 auto; padding:0 24px; }
+
+header{ padding:34px 0 0; }
+.brand{
+  display:inline-flex; align-items:center; gap:9px;
+  color:var(--chalk); text-decoration:none;
+  font-weight:800; letter-spacing:-.02em; font-size:1.05rem;
+}
+.brand-mark{ color:var(--pulse); }
+
+h1{
+  color:var(--chalk); font-weight:800; letter-spacing:-.03em;
+  font-size:clamp(1.7rem, 4.4vw, 2.4rem); line-height:1.22;
+  margin:44px 0 12px;
+}
+.updated{ font-family:var(--mono); font-size:.78rem; color:var(--mist-dim); letter-spacing:.02em; }
+
+h2{
+  color:var(--chalk); font-weight:800; letter-spacing:-.02em;
+  font-size:1.18rem; margin:44px 0 12px;
+}
+p{ margin:0 0 14px; }
+ul{ margin:0 0 14px; padding-left:20px; }
+li{ margin:0 0 8px; }
+a{ color:var(--chalk); }
+strong{ color:var(--chalk); }
+
+/* 핵심 요약 — 방문자가 이것만 읽고 나가도 사실이 전달되게 */
+.lede{
+  margin:26px 0 8px;
+  padding:22px 24px;
+  background:var(--slate);
+  border:1px solid var(--line);
+  border-left:3px solid var(--pulse);
+  border-radius:10px;
+  color:var(--chalk);
+  font-size:1.06rem;
+  line-height:1.7;
+}
+.lede b{ color:var(--pulse); }
+
+table{ width:100%; border-collapse:collapse; margin:0 0 16px; font-size:.94rem; }
+th,td{ text-align:left; padding:11px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+th{ color:var(--chalk); font-weight:700; white-space:nowrap; }
+td:first-child{ color:var(--chalk); white-space:nowrap; }
+
+.note{
+  font-size:.9rem; color:var(--mist-dim);
+  border-top:1px solid var(--line); padding-top:16px; margin-top:8px;
+}
+.todo{
+  color:var(--warm);
+  font-family:var(--mono); font-size:.86rem;
+}
+
+footer{
+  margin-top:64px; padding:26px 0 60px;
+  border-top:1px solid var(--line);
+  font-size:.88rem; color:var(--mist-dim);
+}
+footer a{ color:var(--mist); }
+@media (max-width:560px){
+  th,td{ padding:9px 8px; }
+  td:first-child{ white-space:normal; }
+}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">▣</span> Tadak</a>
+</header>
+
+<main class="wrap">
+
+  <h1>개인정보처리방침</h1>
+  <p class="updated">최종 수정일 2026-07-26 · Tadak 1.0.0</p>
+
+  <p class="lede">
+    Tadak은 <b>개인정보를 수집하지 않습니다.</b> 무엇을 입력하시는지 저장하지도, 외부로 보내지도 않습니다.
+    앱에는 <b>인터넷 통신 기능 자체가 들어 있지 않습니다.</b>
+  </p>
+
+  <h2>1. 키 입력을 어떻게 다루나</h2>
+  <p>
+    Tadak은 소리를 내기 위해 키보드가 눌리는 순간을 감지해야 합니다. 이 지점이 사용자가 가장 불안해하는
+    부분이라, 실제로 무엇을 읽고 무엇을 읽지 않는지 그대로 적습니다.
+  </p>
+  <table>
+    <tr><th>구분</th><th>내용</th></tr>
+    <tr>
+      <td>읽는 것</td>
+      <td>키의 위치 번호(keycode)와 종류 구분값 하나 — 일반키 · 스페이스 · 엔터 · 백스페이스 · 탭 · 조합키 중 무엇인지</td>
+    </tr>
+    <tr>
+      <td>읽지 않는 것</td>
+      <td><strong>어떤 문자가 입력되었는지 조회하지 않습니다.</strong> 글자로 변환하는 과정이 코드에 없습니다</td>
+    </tr>
+    <tr>
+      <td>보관</td>
+      <td>없음. 소리를 재생하는 즉시 버려지며 파일·메모리 어디에도 남기지 않습니다</td>
+    </tr>
+    <tr>
+      <td>전송</td>
+      <td>없음. 전송할 수단이 앱에 존재하지 않습니다</td>
+    </tr>
+  </table>
+  <p>
+    즉 Tadak은 <strong>"키가 눌렸다"는 사실만 알고, "무엇을 눌렀는지는 모릅니다."</strong>
+    비밀번호를 입력하실 때도 마찬가지입니다.
+  </p>
+
+  <h2>2. 화상회의 자동 음소거를 쓸 때</h2>
+  <p>
+    이 기능을 켜두시면, 화상회의 중에 타건음이 상대에게 들리지 않도록 Tadak이 현재 활성화된 창의
+    <strong>프로그램 이름</strong>(예: <code>zoom</code>, <code>teams</code>)만 약 1.2초 간격으로 확인합니다.
+  </p>
+  <ul>
+    <li><strong>창 제목이나 화면 내용은 읽지 않습니다.</strong> 프로그램 이름 하나뿐입니다</li>
+    <li>확인한 이름은 저장하지 않고, 음소거 여부를 판단한 뒤 버립니다</li>
+    <li>이 기능은 <strong>끌 수 있습니다</strong> — 트레이 아이콘 우클릭 → "화상회의 앱 감지 시 자동 음소거"</li>
+  </ul>
+
+  <h2>3. PC에 저장되는 것</h2>
+  <p>
+    설정값만 사용자 PC 안에 파일로 저장됩니다. 여기에 개인정보는 들어가지 않습니다.
+  </p>
+  <ul>
+    <li>선택한 소리 프리셋, 볼륨, 켜짐/꺼짐 상태, 자동 실행 여부, 단축키, 자동 음소거 대상 목록</li>
+    <li>저장 위치는 사용자 PC의 앱 설정 폴더이며, <strong>이 파일은 어디로도 전송되지 않습니다</strong></li>
+    <li>앱을 삭제하시면 함께 지워집니다</li>
+  </ul>
+
+  <h2>4. 수집하지 않는 것</h2>
+  <p>다음 항목은 <strong>일절 수집하지 않습니다.</strong></p>
+  <ul>
+    <li>이름 · 이메일 · 전화번호 등 신원 정보 (회원가입이 없습니다)</li>
+    <li>입력한 문자, 화면 내용, 클립보드, 파일</li>
+    <li>사용 통계 · 분석 · 오류 보고 (텔레메트리 기능이 없습니다)</li>
+    <li>IP 주소 · 위치 · 광고 식별자</li>
+  </ul>
+  <p class="note">
+    Tadak 앱은 어떤 서버와도 통신하지 않습니다. 인터넷 연결이 끊긴 상태에서도 모든 기능이 동일하게 동작합니다.
+  </p>
+
+  <h2>5. 제3자 제공 · 위탁</h2>
+  <p>
+    수집하는 정보가 없으므로 제3자에게 제공하거나 처리를 위탁하는 정보도 없습니다.
+  </p>
+
+  <h2>6. 웹사이트 이용 시</h2>
+  <p>
+    이 웹사이트(<span class="todo">배포 주소</span>)는 Cloudflare Pages에서 제공됩니다. Cloudflare는 서비스 운영과
+    보안을 위해 접속 기록(IP 주소, 브라우저 정보 등)을 자체적으로 처리할 수 있으며, 이는
+    <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare 개인정보처리방침</a>을 따릅니다.
+    Tadak은 이 웹사이트에 자체 분석 도구나 광고 스크립트를 넣지 않았습니다.
+  </p>
+
+  <h2>7. 아동의 개인정보</h2>
+  <p>
+    Tadak은 연령을 확인하지 않으며, 어떤 이용자로부터도 개인정보를 수집하지 않습니다.
+  </p>
+
+  <h2>8. 방침 변경</h2>
+  <p>
+    이 방침이 바뀌면 이 페이지에 수정일과 함께 게시합니다. 수집 항목이 늘어나는 변경이 생기면
+    앱 안에서도 알려드리겠습니다.
+  </p>
+
+  <h2>9. 문의처</h2>
+  <table>
+    <tr><td>상호</td><td class="todo">[상호를 넣어주세요]</td></tr>
+    <tr><td>대표자</td><td class="todo">[대표자명]</td></tr>
+    <tr><td>주소</td><td class="todo">[사업장 주소]</td></tr>
+    <tr><td>문의 이메일</td><td class="todo">[문의 이메일]</td></tr>
+  </table>
+  <p class="note">
+    개인정보 처리에 관해 궁금한 점이나 요청이 있으시면 위 이메일로 연락 주시기 바랍니다.
+  </p>
+
+</main>
+
+<footer class="wrap">
+  <p><a href="/">← Tadak 홈으로</a></p>
+</footer>
+
+</body>
+</html>
