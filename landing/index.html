@@ -136,7 +136,26 @@ header nav a:hover{ color:var(--black); border-bottom-color:var(--blue); }
 
 /* ---------------- 히어로 ---------------- */
 
-.hero{ padding-top:clamp(48px,7vw,88px); padding-bottom:clamp(40px,6vw,72px); }
+.hero{
+  position:relative;
+  padding-top:clamp(48px,7vw,88px);
+  padding-bottom:clamp(40px,6vw,72px);
+}
+/* 히어로 배경 일러스트 — 헤드라인이 좌측 정렬이라 비어 있는 우측 상단에 얹는다.
+   본문 가독성을 해치지 않도록 옅게 깔고 클릭도 통과시킨다. */
+.hero::before{
+  content:"";
+  position:absolute;
+  top:clamp(8px,2vw,28px);
+  right:clamp(-40px,-2vw,0px);
+  width:min(48%,540px);
+  aspect-ratio:510 / 450;
+  background:url('img/keyboard-line.png') right top / contain no-repeat;
+  opacity:.17;
+  pointer-events:none;
+  z-index:0;
+}
+.hero > *{ position:relative; z-index:1; }
 .hero-sub{
   margin-top:20px;
   font-size:1.06rem;
@@ -518,6 +537,7 @@ footer{
   .facts li:last-child{ border-bottom:0; }
 }
 @media (max-width:720px){
+  .hero::before{ display:none; }   /* 좁은 화면에서는 글과 겹친다 */
   .wrap{ padding:0 20px; }
   .top{ padding:0 20px; height:58px; }
   header nav{ gap:15px; }
